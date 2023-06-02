@@ -5,6 +5,7 @@ export type BookDocument = Document & {
   publishedYear: number
   publisher: string
   pages: number
+  author: string
 }
 
 const bookSchema = new mongoose.Schema({
@@ -25,6 +26,10 @@ const bookSchema = new mongoose.Schema({
     required: true,
     min: 1,
   },
+  author: {
+    type: String,
+    required: true,
+  }
 })
 
 export default mongoose.model<BookDocument>('Book', bookSchema)
